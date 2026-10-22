@@ -1,0 +1,100 @@
+@import 'tailwindcss';
+
+/* Design tokens from Figma (HOME-BDS-02) */
+@theme inline {
+  --color-ink: #1c1a1b;
+  --color-gold: #cdae7e;
+  --color-cream: #f8f5f0;
+  --color-white: #ffffff;
+
+  --font-sans: var(--font-montserrat), system-ui, sans-serif;
+  /* Figma uses "Analogue" (commercial). Cormorant Garamond is a placeholder until the font file is provided. */
+  --font-serif: var(--font-display), Georgia, serif;
+}
+
+@theme {
+  --animate-float: float 16s ease-in-out infinite;
+
+  @keyframes float {
+    0%,
+    100% {
+      translate: 0 0;
+    }
+    50% {
+      translate: 0 -18px;
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-padding-top: 6rem;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    background: var(--color-ink);
+    color: var(--color-white);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  ::selection {
+    background: var(--color-gold);
+    color: var(--color-ink);
+  }
+}
+
+/* Typography scale — fluid between mobile and the 1920px design */
+@utility eyebrow {
+  font-size: 0.875rem;
+  letter-spacing: 0.3em;
+  line-height: normal;
+  text-transform: uppercase;
+
+  @media (min-width: 1024px) {
+    font-size: 1rem;
+  }
+}
+
+@utility type-display {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 8.2vw, 9.375rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+@utility type-slogan {
+  font-family: var(--font-serif);
+  font-size: clamp(2.25rem, 5.4vw, 6rem);
+  line-height: 1.1;
+  text-transform: capitalize;
+}
+
+@utility type-h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.875rem, 3.2vw, 3rem);
+  line-height: 1.15;
+  text-transform: capitalize;
+}
+
+@utility type-stat {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-variant-numeric: lining-nums;
+  line-height: 1;
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
