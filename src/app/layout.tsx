@@ -1,17 +1,23 @@
 import type { Metadata } from 'next';
-import { Cormorant_Garamond, Montserrat } from 'next/font/google';
+import localFont from 'next/font/local';
 import { MotionProvider } from '@/components/ui/MotionProvider';
 import './globals.css';
 
-const montserrat = Montserrat({
+// Self-hosted (SIL OFL) so the build does not depend on fetching Google Fonts.
+const montserrat = localFont({
+  src: './fonts/montserrat-latin-wght.woff2',
   variable: '--font-montserrat',
-  subsets: ['latin', 'cyrillic'],
+  weight: '100 900',
+  display: 'swap',
 });
 
-const display = Cormorant_Garamond({
+const display = localFont({
+  src: [
+    { path: './fonts/cormorant-garamond-latin-400.woff2', weight: '400', style: 'normal' },
+    { path: './fonts/cormorant-garamond-latin-500.woff2', weight: '500', style: 'normal' },
+  ],
   variable: '--font-display',
-  subsets: ['latin', 'cyrillic'],
-  weight: ['400', '500'],
+  display: 'swap',
 });
 
 export const metadata: Metadata = {

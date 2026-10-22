@@ -77,7 +77,7 @@ with the base path, and images are committed already optimized.
 
 ## Notes
 
-- Headings use Cormorant Garamond as a stand-in for the commercial _Analogue_ typeface used in the design.
+- Fonts are self-hosted (Montserrat, Cormorant Garamond, SIL OFL). Headings use Cormorant Garamond as a stand-in for the commercial _Analogue_ typeface used in the design.
 - Photos are sourced from [Unsplash](https://unsplash.com/) under the Unsplash License.
   Decorative shapes and the logo come from the original design file.
 - Form handlers (search, newsletter) are client-side only and are not connected to a backend.
